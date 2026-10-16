@@ -1,0 +1,17 @@
+{
+  "appId": "com.sokoban.push",
+  "appName": "推箱子",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "ios": {
+    "contentInset": "automatic",
+    "backgroundColor": "#0d1117ff"
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

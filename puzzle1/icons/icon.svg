@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="推箱子">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#213456"/>
+      <stop offset="0.55" stop-color="#111c31"/>
+      <stop offset="1" stop-color="#080d18"/>
+    </linearGradient>
+    <linearGradient id="boxFace" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#e8b273"/>
+      <stop offset="0.55" stop-color="#b4763a"/>
+      <stop offset="1" stop-color="#8d5a29"/>
+    </linearGradient>
+    <radialGradient id="heroFace" cx="0.34" cy="0.3" r="0.85">
+      <stop offset="0" stop-color="#b6d6ff"/>
+      <stop offset="0.55" stop-color="#4b8bea"/>
+      <stop offset="1" stop-color="#2450a8"/>
+    </radialGradient>
+    <radialGradient id="goalGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe07a"/>
+      <stop offset="1" stop-color="#e8ac2a"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <circle cx="256" cy="70" r="260" fill="#2c4a80" opacity="0.28"/>
+
+  <!-- 木箱 -->
+  <g>
+    <rect x="122" y="136" width="164" height="164" rx="22" fill="url(#boxFace)"
+          stroke="#ffffff" stroke-opacity="0.22" stroke-width="6"/>
+    <rect x="176" y="136" width="16" height="164" fill="#5a3714" opacity="0.38"/>
+    <rect x="122" y="210" width="164" height="16" fill="#5a3714" opacity="0.38"/>
+    <rect x="122" y="136" width="164" height="164" rx="22" fill="none"
+          stroke="#000000" stroke-opacity="0.18" stroke-width="10"/>
+  </g>
+
+  <!-- 玩家 -->
+  <g>
+    <circle cx="336" cy="340" r="62" fill="url(#heroFace)"/>
+    <circle cx="336" cy="340" r="62" fill="none" stroke="#a9ceff" stroke-opacity="0.55" stroke-width="6"/>
+    <ellipse cx="317" cy="330" rx="8" ry="12" fill="#0d1730" opacity="0.9"/>
+    <ellipse cx="355" cy="330" rx="8" ry="12" fill="#0d1730" opacity="0.9"/>
+  </g>
+
+  <!-- 目标点 -->
+  <circle cx="352" cy="150" r="30" fill="url(#goalGlow)"/>
+  <circle cx="352" cy="150" r="46" fill="none" stroke="#f7c948" stroke-opacity="0.35" stroke-width="6"/>
+</svg>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#f1f5f9" />
+  <title>数独大师</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ 首页 ============ -->
+  <div id="screen-home" class="screen active">
+    <header class="home-header">
+      <div class="logo">
+        <div class="logo-grid">
+          <span>5</span><span>3</span><span></span><span></span><span>7</span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <h1>数独大师</h1>
+      <p class="slogan">经典逻辑谜题 · 三档难度 · 80 关挑战</p>
+    </header>
+
+    <section class="diff-list" id="diff-list"></section>
+
+    <footer class="home-footer">
+      <button class="btn stats-entry" id="btn-stats">📊 数据统计</button>
+      <button class="btn-text" id="btn-reset-progress">重置全部进度</button>
+    </footer>
+  </div>
+
+  <!-- ============ 关卡选择 ============ -->
+  <div id="screen-levels" class="screen">
+    <header class="nav-bar">
+      <button class="btn-icon" id="btn-back-home">‹</button>
+      <div class="nav-title" id="levels-title">关卡</div>
+      <div class="nav-progress" id="levels-progress">0/0</div>
+    </header>
+    <div class="level-grid" id="level-grid"></div>
+  </div>
+
+  <!-- ============ 数据统计 ============ -->
+  <div id="screen-stats" class="screen">
+    <header class="nav-bar">
+      <button class="btn-icon" id="btn-back-home-stats">‹</button>
+      <div class="nav-title">数据统计</div>
+      <div class="nav-progress" id="stats-total"></div>
+    </header>
+    <div class="stats-list" id="stats-list"></div>
+    <footer class="home-footer">
+      <button class="btn-text" id="btn-reset-stats">重置统计数据</button>
+    </footer>
+  </div>
+
+  <!-- ============ 游戏 ============ -->
+  <div id="screen-game" class="screen">
+    <header class="nav-bar">
+      <button class="btn-icon" id="btn-back-levels">‹</button>
+      <div class="nav-title" id="game-title">初级 · 第 1 关</div>
+      <div class="game-meta">
+        <span id="game-timer">00:00</span>
+        <button class="btn-icon small" id="btn-pause">⏸</button>
+      </div>
+    </header>
+
+    <div class="status-bar">
+      <div class="status-chip" id="chip-mistakes">错误 <b>0</b>/3</div>
+      <div class="status-chip" id="chip-hints">提示 <b>3</b></div>
+    </div>
+
+    <div class="board-wrap">
+      <div class="board" id="board"></div>
+    </div>
+
+    <div class="toolbar">
+      <button class="tool" id="btn-erase">⌫<span>擦除</span></button>
+      <button class="tool" id="btn-notes">✎<span>笔记</span></button>
+      <button class="tool" id="btn-hint">💡<span>提示</span></button>
+    </div>
+
+    <div class="numpad" id="numpad"></div>
+  </div>
+
+  <!-- ============ 暂停遮罩 ============ -->
+  <div id="overlay-pause" class="overlay hidden">
+    <div class="dialog">
+      <h2>游戏暂停</h2>
+      <p id="pause-info">休息一下，随时继续</p>
+      <button class="btn primary" id="btn-resume">继续游戏</button>
+      <button class="btn ghost" id="btn-restart">重新开始</button>
+      <button class="btn ghost" id="btn-quit">退出关卡</button>
+    </div>
+  </div>
+
+  <!-- ============ 失败遮罩 ============ -->
+  <div id="overlay-fail" class="overlay hidden">
+    <div class="dialog">
+      <div class="dialog-emoji">😵</div>
+      <h2>错误次数太多</h2>
+      <p>再试一次，稳住心态！</p>
+      <button class="btn primary" id="btn-fail-retry">重新挑战</button>
+      <button class="btn ghost" id="btn-fail-quit">退出关卡</button>
+    </div>
+  </div>
+
+  <!-- ============ 胜利遮罩 ============ -->
+  <div id="overlay-win" class="overlay hidden">
+    <div class="dialog">
+      <div class="dialog-emoji">🎉</div>
+      <h2>恭喜通关！</h2>
+      <div class="win-stats" id="win-stats"></div>
+      <div class="win-stars" id="win-stars"></div>
+      <button class="btn primary" id="btn-next">下一关</button>
+      <button class="btn ghost" id="btn-win-quit">返回关卡</button>
+    </div>
+  </div>
+
+  <script src="js/sudoku.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

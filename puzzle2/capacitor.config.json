@@ -1,0 +1,16 @@
+{
+  "appId": "com.puzzle2.sudoku",
+  "appName": "数独大师",
+  "webDir": "www",
+  "backgroundColor": "#f1f5f9",
+  "server": {
+    "androidScheme": "https"
+  },
+  "ios": {
+    "contentInset": "never",
+    "backgroundColor": "#f1f5f9"
+  },
+  "android": {
+    "backgroundColor": "#f1f5f9"
+  }
+}

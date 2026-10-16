@@ -1,0 +1,14 @@
+# Node / Capacitor
+node_modules/
+npm-debug.log
+
+# 原生工程（运行 cap sync 后生成，体积大）
+ios/
+android/
+
+# 临时与日志
+*.log
+.DS_Store
+scripts/_probe*.txt
+scripts/_gen*.log
+scripts/_probe.py

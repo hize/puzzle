@@ -1,0 +1,20 @@
+{
+  "name": "sokoban",
+  "version": "1.0.0",
+  "private": true,
+  "description": "推箱子 - 初级 20 关 / 中级 50 关 / 高级 100 关",
+  "scripts": {
+    "build": "node scripts/build-www.js",
+    "cap:sync": "npm run build && npx cap sync",
+    "ios:open": "npx cap open ios",
+    "android:open": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/ios": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}
