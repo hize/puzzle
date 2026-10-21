@@ -4,13 +4,16 @@ import Capacitor
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    /// 兼容部分插件通过 `UIApplication.shared.delegate?.window` 取窗口的写法
+    var window: UIWindow? {
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-            self?.hideWebViewScrollIndicators()
-        }
         return true
     }
 
@@ -30,22 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        hideWebViewScrollIndicators()
+        // 界面相关逻辑已迁移到 SceneDelegate.sceneDidBecomeActive
     }
 
-    /// 隐藏 WKWebView 的原生滚动指示器（页面右侧滚动条）
-    private func hideWebViewScrollIndicators() {
-        guard let root = window?.rootViewController else { return }
-        var target: UIViewController? = root
-        if let nav = root as? UINavigationController {
-            target = nav.topViewController
-        }
-        guard let bridgeVC = target as? CAPBridgeViewController,
-              let webView = bridgeVC.webView else {
-            return
-        }
-        webView.scrollView.showsVerticalScrollIndicator = false
-        webView.scrollView.showsHorizontalScrollIndicator = false
+    // MARK: - UISceneSession Lifecycle
+
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+        // Called when the user discards a scene session.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
